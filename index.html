@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>UGesture JS</title>
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <script src = 'jQuery.js'></script>
+    <script src = 'raphael.js'></script>
+    <script src = 'Circle.js'></script>
+    <script src = 'MouseProcessor.js'></script>
+    
+</head>
+<body>
+    <div id = "mouseC" class="mouseCordinates">&nbsp;</div>
+    <div id = "holder"></div>
+    
+    <script language = 'javascript' type = "text/javascript">
+    /* Initialize circle as a UI component to see mouse gesture results. */
+    var myCircle = new Circle();
+    
+    /* Initialize mouse move code. */
+    var mProcessor = new MouseProcessor();
+    document.onmousemove = mProcessor.processMouse;
+    
+    /* Initialize mouse wheel code. */
+    if (window.addEventListener)
+        window.addEventListener('DOMMouseScroll', mProcessor.wheel, false);
+    window.onmousewheel = document.onmousewheel = mProcessor.wheel;
+    
+    /* Initialize mouse processor events. */
+    mProcessor.setScrollEvents(myCircle.animateMyCircleOut, myCircle.animateMyCircleIn);
+    mProcessor.setClockWiseGestureEvent( function() {
+        myCircle.animateToggle();
+    });
+    
+    </script>
+</body>
+</html>

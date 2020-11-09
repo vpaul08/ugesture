@@ -1,0 +1,16 @@
+::selection {
+	background: #ffb7b7; /* Safari */
+	}
+::-moz-selection {
+	background: #ffb7b7; /* Firefox */
+}
+
+body {
+	background: #EEE;
+	overflow: hidden;
+}
+
+.mouseCordinates {
+	position: absolute;
+	color: #999;
+}
